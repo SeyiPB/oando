@@ -8,4 +8,4 @@ Static site plus lightweight Python intake server.
 python3 server.py
 ```
 
-Open http://127.0.0.1:8008/
+Open the local preview in your browser after starting the server.
