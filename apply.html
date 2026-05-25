@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply — Owners &amp; Operators</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7f5;
+      --surface: #ffffff;
+      --panel: #eef3ef;
+      --ink: #0f1720;
+      --muted: #50606e;
+      --line: #d8e1db;
+      --green: #0f7a62;
+      --green-dark: #0b5d4b;
+      --navy: #12212f;
+      --max: 860px;
+      --shadow: 0 14px 32px rgba(18,33,47,.06);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 28px)); margin: 0 auto; }
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: rgba(245,247,245,.94);
+      backdrop-filter: blur(12px);
+    }
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 600;
+      font-size: 19px;
+      letter-spacing: -.02em;
+    }
+    .brand-mark {
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, var(--green), #19a07f);
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 70%, 70% 100%, 0 100%);
+    }
+    .back-link { color: var(--muted); font-size: 14px; }
+    main { padding: 44px 0 64px; }
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #dcefe8;
+      color: var(--green-dark);
+      border: 1px solid rgba(15,122,98,.16);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(38px, 7vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+      font-weight: 300;
+      color: var(--navy);
+    }
+    .intro {
+      max-width: 740px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .shell {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: start;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 22px;
+    }
+    h2, h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      letter-spacing: -.03em;
+      line-height: 1.08;
+    }
+    h2 { font-size: 30px; font-weight: 400; }
+    h3 { font-size: 22px; font-weight: 400; }
+    p, li { color: var(--muted); line-height: 1.6; }
+    .field-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .field, .field-full { display: grid; gap: 8px; margin-bottom: 14px; }
+    .field-full { grid-column: 1 / -1; }
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font: inherit;
+      color: var(--ink);
+    }
+    textarea { min-height: 140px; resize: vertical; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--green); color: #fff; }
+    .btn-secondary { border-color: var(--line); background: transparent; color: var(--navy); }
+    .stack { display: grid; gap: 14px; }
+    ul { margin: 0; padding-left: 18px; }
+    .small { font-size: 13px; }
+    .status { margin-top: 14px; min-height: 24px; font-size: 14px; }
+    .status.ok { color: var(--green-dark); }
+    .status.error { color: #9f1d1d; }
+    @media (max-width: 820px) {
+      .shell, .field-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="/index.html"><span class="brand-mark"></span>Owners &amp; Operators</a>
+      <a class="back-link" href="/index.html">Back to overview</a>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="eyebrow">Founding cohort application</div>
+      <h1>Apply to Owners &amp; Operators.</h1>
+      <p class="intro">Choose the track that best matches your current intent. Tell us whether you want to learn, operate, or invest, and share enough context for us to review fit for the founding cohort.</p>
+      <div class="shell">
+        <section class="card">
+          <h2>Application form</h2>
+          <form id="apply-form">
+            <div class="field-grid">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+              <div class="field">
+                <label for="phone">Phone number</label>
+                <input id="phone" name="phone" type="tel" />
+              </div>
+              <div class="field">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                  <option value="">Select gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Non-binary</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+              <div class="field-full">
+                <label for="track">Track</label>
+                <select id="track" name="track" required>
+                  <option value="">Select a track</option>
+                  <option>Learn</option>
+                  <option>Operate</option>
+                  <option>Invest</option>
+                </select>
+              </div>
+              <div class="field-full">
+                <label for="stage">What stage are you in right now?</label>
+                <select id="stage" name="stage" required>
+                  <option value="">Select your stage</option>
+                  <option>Exploring ETA</option>
+                  <option>Learning the basics</option>
+                  <option>Actively searching</option>
+                  <option>Under LOI / in diligence</option>
+                  <option>Operating post-close</option>
+                  <option>Investing in operators</option>
+                  <option>Advising / lending / supporting deals</option>
+                </select>
+              </div>
+              <div class="field-full">
+                <label for="intent">Why do you want to join?</label>
+                <textarea id="intent" name="intent" required placeholder="Tell us what you want to learn, what you are working on, and what kind of room would be most useful."></textarea>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit application</button>
+            <div id="form-status" class="status" aria-live="polite"></div>
+          </form>
+        </section>
+        <aside class="stack">
+          <div class="panel">
+            <h3>Track guide</h3>
+            <ul>
+              <li><strong>Learn:</strong> you want a practical path into ETA.</li>
+              <li><strong>Operate:</strong> you are actively searching, acquiring, or running a business.</li>
+              <li><strong>Invest:</strong> you want stronger context around operators and opportunities.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>What we review</h3>
+            <ul>
+              <li>Fit for the track you selected</li>
+              <li>Clarity of intent</li>
+              <li>Potential contribution to the cohort</li>
+              <li>Alignment with the standard of the room</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <script>
+    document.getElementById('apply-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const status = document.getElementById('form-status');
+      const data = new FormData(form);
+      const values = Object.fromEntries(data.entries());
+      status.textContent = 'Submitting...';
+      status.className = 'status';
+
+      try {
+        const res = await fetch('/apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(values)
+        });
+
+        if (!res.ok) throw new Error('Submission failed');
+        form.reset();
+        status.textContent = 'Application submitted successfully.';
+        status.className = 'status ok';
+      } catch (err) {
+        status.textContent = 'There was a problem submitting the application. Please try again.';
+        status.className = 'status error';
+      }
+    });
+  </script>
+</body>
+</html>

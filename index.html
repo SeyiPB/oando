@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Owners &amp; Operators — ETA Community</title>
+  <meta name="description" content="Owners & Operators is a professional ETA community for acquisition entrepreneurs, operators, and capital partners learning, operating, and investing around small business ownership." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7f5;
+      --surface: #ffffff;
+      --surface-alt: #eef3ef;
+      --panel: #f0f4f1;
+      --ink: #0f1720;
+      --muted: #50606e;
+      --line: #d8e1db;
+      --line-strong: #bfcbc3;
+      --green: #0f7a62;
+      --green-dark: #0b5d4b;
+      --green-soft: #dcefe8;
+      --navy: #12212f;
+      --navy-soft: #e9eef3;
+      --max: 1200px;
+      --shadow: 0 14px 32px rgba(18, 33, 47, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    .site-shell {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(245, 247, 245, 0.92);
+      border-bottom: 1px solid rgba(191, 203, 195, 0.65);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 76px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, var(--green), #19a07f);
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 70%, 70% 100%, 0 100%);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--green-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 16px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.18s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--green-dark);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--line-strong);
+      color: var(--navy);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: var(--surface);
+      border-color: var(--green);
+      color: var(--green-dark);
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      border: 1px solid rgba(15, 122, 98, 0.16);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 48px;
+      align-items: start;
+      margin-top: 22px;
+    }
+
+    h1 {
+      margin: 18px 0 18px;
+      max-width: 720px;
+      font-size: clamp(48px, 7vw, 80px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 300;
+      color: var(--navy);
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-notes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .note {
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .note span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .hero-visual {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-photo.main {
+      min-height: 560px;
+    }
+
+    .hero-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 22px;
+      background: linear-gradient(180deg, rgba(18, 33, 47, 0) 0%, rgba(18, 33, 47, 0.84) 100%);
+      color: #fff;
+    }
+
+    .hero-caption strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .hero-caption span {
+      display: block;
+      max-width: 520px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .metric-card {
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .metric-value {
+      margin-top: 10px;
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 300;
+      color: var(--navy);
+    }
+
+    .metric-copy {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .stats-band {
+      padding: 18px 0 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .stat {
+      padding: 24px 24px 22px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child { border-right: 0; }
+
+    .stat .value {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 300;
+      color: var(--navy);
+    }
+
+    .stat .label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--green-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .stat p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 48px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-top: 8px;
+    }
+
+    h2 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(34px, 4.8vw, 56px);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      font-weight: 300;
+      color: var(--navy);
+    }
+
+    .section-copy {
+      margin-top: 14px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .model-grid,
+    .audience-grid,
+    .steps-grid,
+    .proof-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .model-grid,
+    .audience-grid,
+    .proof-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 5px 10px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+      color: var(--navy);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .card ul {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .card li {
+      color: var(--navy);
+      font-size: 14px;
+      line-height: 1.5;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .insight-band {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 36px;
+      align-items: center;
+    }
+
+    .insight-band h2,
+    .cta-shell h2 {
+      color: #fff;
+    }
+
+    .insight-band .section-copy,
+    .cta-shell p {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .insight-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .insight-item {
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .proof-photo {
+      min-height: 260px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: var(--surface);
+    }
+
+    .proof-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 20px;
+      background: var(--navy-soft);
+      color: var(--green-dark);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .cta-shell {
+      background: linear-gradient(135deg, #173246 0%, #102331 100%);
+      padding: 38px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .cta-panel {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 22px;
+      color: #fff;
+    }
+
+    .cta-panel strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 1.05;
+      font-weight: 300;
+    }
+
+    .cta-panel span {
+      display: block;
+      color: rgba(255,255,255,0.76);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    #founding .cta-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #founding .cta-grid > div {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .footer {
+      padding: 26px 0 34px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid rgba(191, 203, 195, 0.7);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .insight-grid,
+      .cta-grid,
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .model-grid,
+      .audience-grid,
+      .proof-grid,
+      .steps-grid,
+      .stats-grid,
+      .hero-notes,
+      .hero-metrics {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats-grid {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        gap: 16px;
+      }
+
+      .stat {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        border-right: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: min(var(--max), calc(100% - 24px)); }
+      .nav { min-height: 68px; }
+      .nav-links { display: none; }
+      h1 { font-size: 46px; }
+      .hero-photo.main { min-height: 360px; }
+      .model-grid,
+      .audience-grid,
+      .proof-grid,
+      .steps-grid,
+      .hero-notes,
+      .hero-metrics,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-shell { padding: 28px 22px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Owners & Operators home"><span class="brand-mark"></span>Owners &amp; Operators</a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#model">Model</a>
+          <a href="#members">Members</a>
+          <a href="#how">How it works</a>
+          <a href="#founding">Founding cohort</a>
+        </nav>
+        <a class="btn btn-primary" href="/apply.html">Apply now</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container">
+          <div class="eyebrow">ETA community for small business ownership</div>
+          <div class="hero-grid">
+            <div>
+              <h1>Learn the playbook. Review real deals. Build operator-quality judgment.</h1>
+              <p class="hero-copy">Owners &amp; Operators is a practical ETA community for people who want to learn, operate, and invest around small business ownership. Apply now and we will review fit for the founding cohort.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="/apply.html">Apply now</a>
+                <a class="btn btn-secondary" href="#model">Explore the model</a>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="hero-photo main">
+                <img src="https://images.pexels.com/photos/7693107/pexels-photo-7693107.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Mixed-race professionals reviewing strategy together in a meeting room" />
+                <div class="hero-caption">
+                  <div>
+                    <strong>Built for people ready to apply</strong>
+                    <span>Clear tracks, practical review, and a direct path into the right room.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-metrics">
+                <div class="metric-card">
+                  <div class="metric-label">Core tracks</div>
+                  <div class="metric-value">3</div>
+                  <div class="metric-copy">Learn, Operate, and Invest — distinct entry points with one shared standard.</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Operating principle</div>
+                  <div class="metric-value">Real work</div>
+                  <div class="metric-copy">The community is organized around practical judgment, not passive content consumption.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats-band">
+        <div class="container stats-grid">
+          <div class="stat">
+            <span class="label">Member mix</span>
+            <span class="value">Operators</span>
+            <p>Searchers, owners, and capital partners learning in the same room.</p>
+          </div>
+          <div class="stat">
+            <span class="label">Learning mode</span>
+            <span class="value">Applied</span>
+            <p>Frameworks become judgment through discussion, critique, and repetition.</p>
+          </div>
+          <div class="stat">
+            <span class="label">Community asset</span>
+            <span class="value">Trust</span>
+            <p>Member quality, confidentiality, and strong operating norms matter more than scale.</p>
+          </div>
+          <div class="stat">
+            <span class="label">Launch approach</span>
+            <span class="value">Focused</span>
+            <p>Start with a focused founding cohort and review every application by track.</p>
+          </div>
+        </div>
+      </div>
+
+      <section id="model">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">The model</div>
+            <div>
+              <h2>Three tracks, one operating standard.</h2>
+              <div class="section-copy">Applicants choose the track that best matches their current role and intent: learn, operate, or invest.</div>
+            </div>
+          </div>
+
+          <div class="model-grid">
+            <article class="card">
+              <div class="card-label">Learn</div>
+              <h3>Build fluency in ETA.</h3>
+              <p>For members entering the category and needing a practical grasp of how good deals are found, evaluated, financed, and operated.</p>
+              <ul>
+                <li>Deal sourcing and broker outreach habits</li>
+                <li>Valuation, add-backs, and risk framing</li>
+                <li>Diligence checklists and case study review</li>
+              </ul>
+            </article>
+            <article class="card">
+              <div class="card-label">Operate</div>
+              <h3>Work on live opportunities.</h3>
+              <p>For active searchers and owners who need sharper feedback loops, better pattern recognition, and operator-caliber accountability.</p>
+              <ul>
+                <li>Structured deal review rooms and critique</li>
+                <li>Operator AMAs and working sessions</li>
+                <li>Post-close support and peer accountability</li>
+              </ul>
+            </article>
+            <article class="card">
+              <div class="card-label">Invest</div>
+              <h3>Back better operators.</h3>
+              <p>For capital partners who want stronger context, clearer operator quality signals, and a more intelligent view of ETA opportunities.</p>
+              <ul>
+                <li>Investor education around ETA mechanics</li>
+                <li>Operator visibility and matching</li>
+                <li>Disciplined discussion around showcased deals</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="insight-band">
+        <div class="container insight-grid">
+          <div>
+            <div class="section-kicker" style="color:#91d4c0; padding-top:0;">Why this matters</div>
+            <h2>Most people trying to buy a small business are learning in public, alone, or too late.</h2>
+            <div class="section-copy">Owners &amp; Operators creates a better environment: a place to ask sharper questions, test judgment before capital is committed, and learn from people a few steps ahead.</div>
+          </div>
+          <div class="insight-list">
+            <div class="insight-item">A good ETA community should improve how members think, not just what they know.</div>
+            <div class="insight-item">The highest value comes from repeated exposure to real deals, real operators, and real decision tradeoffs.</div>
+            <div class="insight-item">The room works only if standards are high: discretion, seriousness, and a bias toward action.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="members">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Who it’s for</div>
+            <div>
+              <h2>A community for people who want ownership, not just content.</h2>
+              <div class="section-copy">Applicants may come from different stages, but the goal is the same: sharper judgment, better relationships, and a clearer path into small-business ownership.</div>
+            </div>
+          </div>
+
+          <div class="audience-grid">
+            <article class="card">
+              <h3>New ETA learners</h3>
+              <p>Professionals exploring entrepreneurship through acquisition who want a credible path into the category.</p>
+            </article>
+            <article class="card">
+              <h3>Active searchers and owners</h3>
+              <p>Members evaluating deals, talking to brokers, raising capital, or operating after close who need better feedback.</p>
+            </article>
+            <article class="card">
+              <h3>Capital partners</h3>
+              <p>Investors, lenders, and backers who want a better read on operator quality and a stronger understanding of ETA.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Community in practice</div>
+            <div>
+              <h2>Professional, collaborative, and grounded in real work.</h2>
+              <div class="section-copy">The interface should feel more like a serious advisory institution than a creator community: clear, restrained, and built for trust.</div>
+            </div>
+          </div>
+
+          <div class="proof-grid">
+            <div class="proof-photo">
+              <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mixed-race professionals studying charts together around a table" />
+            </div>
+            <div class="proof-photo">
+              <img src="https://images.pexels.com/photos/7648001/pexels-photo-7648001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Professional in a strategy meeting speaking to a diverse group" />
+            </div>
+            <article class="card">
+              <div class="card-label">Community layer</div>
+              <h3>Shared assets for every serious member.</h3>
+              <p>The room becomes more valuable when the same high-quality layer supports everyone across stages.</p>
+              <ul>
+                <li>Curated deals newsletter with learning notes</li>
+                <li>Member directory across operators, searchers, and capital</li>
+                <li>Live sessions, roundtables, and operator-led discussion</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="how">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">How it works</div>
+            <div>
+              <h2>Move members from interest to informed action.</h2>
+              <div class="section-copy">The process is simple: apply, choose your track, tell us where you are, and we review fit for the right room.</div>
+            </div>
+          </div>
+
+          <div class="steps-grid">
+            <article class="card">
+              <div class="step-num">01</div>
+              <h3>Apply and choose a track</h3>
+              <p>Applicants choose Learn, Operate, or Invest so the review starts with the right context.</p>
+            </article>
+            <article class="card">
+              <div class="step-num">02</div>
+              <h3>Share your context</h3>
+              <p>Tell us what you are trying to do, where you are stuck, and what kind of room would help most.</p>
+            </article>
+            <article class="card">
+              <div class="step-num">03</div>
+              <h3>We review fit</h3>
+              <p>We review applications by track, intent, and contribution potential for the founding cohort.</p>
+            </article>
+            <article class="card">
+              <div class="step-num">04</div>
+              <h3>Join the right room</h3>
+              <p>Accepted members enter with clearer expectations, better alignment, and a stronger starting point.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="founding">
+        <div class="container cta-shell">
+          <div class="cta-grid">
+            <div style="text-align:center;">
+              <div class="section-kicker" style="color:#91d4c0; padding-top:0; justify-content:center;">Founding cohort</div>
+              <h2>Apply for the founding cohort.</h2>
+              <p>Owners &amp; Operators is opening applications for a focused founding cohort. Apply now and tell us whether you want to learn, operate, or invest.</p>
+              <div class="hero-actions" style="margin-top:24px; justify-content:center;">
+                <a class="btn btn-primary" href="/apply.html">Apply now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="brand"><span class="brand-mark"></span>Owners &amp; Operators</div>
+        <div>ETA community — Learn · Operate · Invest</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
