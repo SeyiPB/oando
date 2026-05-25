@@ -3,7 +3,8 @@ const fs = require('fs');
 const FIELDS = ['submitted_at', 'name', 'email', 'phone', 'gender', 'track', 'stage', 'intent'];
 const MAX_BODY_BYTES = 16 * 1024;
 const TMP_CSV_PATH = '/tmp/oando-applications.csv';
-const GOOGLE_APPS_SCRIPT_URL = process.env.GOOGLE_APPS_SCRIPT_URL || '';
+const DEFAULT_GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpwI9qZCrfPGuabE5xxOms2NmLkf_akSiDrY6EyvyG4Ju5e1AwIwKb1jAN3sHAIWBFaA/exec';
+const GOOGLE_APPS_SCRIPT_URL = process.env.GOOGLE_APPS_SCRIPT_URL || DEFAULT_GOOGLE_APPS_SCRIPT_URL;
 
 function escapeCsv(value) {
   const str = String(value ?? '').replace(/\r?\n|\r/g, ' ').trim();
