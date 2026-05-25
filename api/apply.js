@@ -3,6 +3,7 @@ const fs = require('fs');
 const FIELDS = ['submitted_at', 'name', 'email', 'phone', 'gender', 'track', 'stage', 'intent'];
 const MAX_BODY_BYTES = 16 * 1024;
 const TMP_CSV_PATH = '/tmp/oando-applications.csv';
+const GOOGLE_APPS_SCRIPT_URL = process.env.GOOGLE_APPS_SCRIPT_URL || '';
 
 function escapeCsv(value) {
   const str = String(value ?? '').replace(/\r?\n|\r/g, ' ').trim();
@@ -39,6 +40,29 @@ function appendEphemeralCsv(row) {
   fs.appendFileSync(TMP_CSV_PATH, line, 'utf8');
 }
 
+async function forwardToGoogleAppsScript(row) {
+  const res = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+    method: 'POST',
+    redirect: 'follow',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(row)
+  });
+
+  const text = await res.text();
+  if (!res.ok) {
+    throw Object.assign(new Error(`Google Sheets webhook failed: ${res.status}`), { statusCode: 502, details: text.slice(0, 500) });
+  }
+
+  try {
+    const parsed = text ? JSON.parse(text) : {};
+    if (parsed.ok === false) {
+      throw Object.assign(new Error(parsed.error || 'Google Sheets webhook rejected the submission'), { statusCode: 502 });
+    }
+  } catch (err) {
+    if (err.statusCode) throw err;
+  }
+}
+
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
 
@@ -62,9 +86,15 @@ module.exports = async (req, res) => {
       return;
     }
 
+    if (GOOGLE_APPS_SCRIPT_URL) {
+      await forwardToGoogleAppsScript(row);
+      console.log('application_submission_google_sheet', JSON.stringify(row));
+      res.status(200).json({ ok: true, storage: 'google-sheets' });
+      return;
+    }
+
     appendEphemeralCsv(row);
     console.log('application_submission', JSON.stringify(row));
-
     res.status(200).json({ ok: true, storage: 'ephemeral-vercel-tmp' });
   } catch (err) {
     const statusCode = err.statusCode || 500;
