@@ -1,10 +1,12 @@
+const SHEET_ID = '1nWZs7FDAuMd32XCfLOLn_sJmfECBxOZaUTchQihKGR0';
 const SHEET_NAME = 'Sheet1';
 const HEADERS = ['submitted_at', 'name', 'email', 'phone', 'gender', 'track', 'stage', 'intent'];
 
 function doPost(e) {
   try {
-    const body = JSON.parse(e.postData.contents || '{}');
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME) || SpreadsheetApp.getActiveSpreadsheet().insertSheet(SHEET_NAME);
+    const body = JSON.parse((e && e.postData && e.postData.contents) || '{}');
+    const spreadsheet = SpreadsheetApp.openById(SHEET_ID);
+    const sheet = spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.insertSheet(SHEET_NAME);
 
     const currentHeaders = sheet.getRange(1, 1, 1, HEADERS.length).getValues()[0];
     const needsHeaders = HEADERS.some((header, index) => currentHeaders[index] !== header);
