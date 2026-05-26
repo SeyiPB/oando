@@ -1,5 +1,5 @@
 const SHEET_ID = '1nWZs7FDAuMd32XCfLOLn_sJmfECBxOZaUTchQihKGR0';
-const SHEET_NAME = 'Sheet1';
+const SHEET_NAME = 'candidates';
 const HEADERS = ['submitted_at', 'name', 'email', 'phone', 'gender', 'track', 'stage', 'intent'];
 
 function doPost(e) {
