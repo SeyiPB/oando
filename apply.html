@@ -53,18 +53,17 @@
       backdrop-filter: blur(12px);
     }
     .nav {
-      min-height: 72px;
+      min-height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
     }
     .brand {
       display: inline-flex;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
       font-weight: 600;
-      font-size: 19px;
+      font-size: 18px;
       letter-spacing: -.02em;
     }
     .brand-mark {
@@ -73,37 +72,37 @@
       background: linear-gradient(135deg, var(--green), #19a07f);
       clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 70%, 70% 100%, 0 100%);
     }
-    .back-link { color: var(--muted); font-size: 14px; }
-    main { padding: 44px 0 64px; }
+    .back-link { color: var(--muted); font-size: 13px; }
+    main { padding: 40px 0 60px; }
     .eyebrow {
       display: inline-block;
-      padding: 8px 12px;
+      padding: 7px 12px;
       background: #dcefe8;
       color: var(--green-dark);
-      border: 1px solid rgba(15,122,98,.16);
-      font-size: 12px;
+      border: 1px solid rgba(15,122,98,.15);
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: .08em;
       text-transform: uppercase;
     }
     h1 {
-      margin: 18px 0 14px;
-      font-size: clamp(38px, 7vw, 64px);
+      margin: 16px 0 12px;
+      font-size: clamp(36px, 7vw, 60px);
       line-height: 1.02;
       letter-spacing: -.04em;
       font-weight: 300;
       color: var(--navy);
     }
     .intro {
-      max-width: 740px;
+      max-width: 720px;
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 28px;
+      font-size: 17px;
+      line-height: 1.55;
+      margin-bottom: 24px;
     }
     .shell {
       display: grid;
-      gap: 18px;
+      gap: 16px;
       grid-template-columns: 1.1fr .9fr;
       align-items: start;
     }
@@ -111,31 +110,31 @@
       background: var(--surface);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      padding: 26px;
+      padding: 24px;
     }
     .panel {
       background: var(--panel);
       border: 1px solid var(--line);
-      padding: 22px;
+      padding: 20px;
     }
     h2, h3 {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       color: var(--navy);
       letter-spacing: -.03em;
       line-height: 1.08;
     }
-    h2 { font-size: 30px; font-weight: 400; }
-    h3 { font-size: 22px; font-weight: 400; }
-    p, li { color: var(--muted); line-height: 1.6; }
+    h2 { font-size: 28px; font-weight: 400; }
+    h3 { font-size: 20px; font-weight: 400; }
+    p, li { color: var(--muted); line-height: 1.55; }
     .field-grid {
       display: grid;
-      gap: 14px;
+      gap: 12px;
       grid-template-columns: 1fr 1fr;
     }
-    .field, .field-full { display: grid; gap: 8px; margin-bottom: 14px; }
+    .field, .field-full { display: grid; gap: 6px; margin-bottom: 12px; }
     .field-full { grid-column: 1 / -1; }
     label {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--navy);
       letter-spacing: .04em;
@@ -143,66 +142,63 @@
     }
     input, select, textarea {
       width: 100%;
-      padding: 14px 14px;
+      padding: 12px 13px;
       border: 1px solid var(--line);
       background: #fff;
       font: inherit;
       color: var(--ink);
+      border-radius: 6px;
     }
-    textarea { min-height: 140px; resize: vertical; }
+    textarea { min-height: 130px; resize: vertical; }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
+      min-height: 46px;
+      padding: 0 16px;
       border: 1px solid transparent;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
+      border-radius: 6px;
     }
     .btn-primary { background: var(--green); color: #fff; }
-    .btn-secondary { border-color: var(--line); background: transparent; color: var(--navy); }
-    .stack { display: grid; gap: 14px; }
-    .checkbox-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 14px;
-    }
-    .checkbox-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      background: #fff;
-    }
-    .checkbox-item input {
-      width: auto;
-      margin: 3px 0 0;
-      padding: 0;
-    }
-    .checkbox-item span {
-      font-size: 14px;
-      line-height: 1.4;
-      color: var(--ink);
-    }
+    .stack { display: grid; gap: 12px; }
     ul { margin: 0; padding-left: 18px; }
-    .small { font-size: 13px; }
-    .honeypot {
-      position: absolute;
-      left: -10000px;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-    }
-    .status { margin-top: 14px; min-height: 24px; font-size: 14px; }
+    .small { font-size: 12px; }
+    .status { margin-top: 12px; min-height: 22px; font-size: 13px; }
     .status.ok { color: var(--green-dark); }
     .status.error { color: #9f1d1d; }
+
+    /* Business interest checkboxes */
+    .interests-grid {
+      display: grid;
+      gap: 8px 16px;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 12px;
+    }
+    .interest-item {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .interest-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--green);
+      margin: 0;
+      cursor: pointer;
+    }
+    .interest-item label {
+      font-size: 13px;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      cursor: pointer;
+    }
+    .honeypot { display: none !important; }
     @media (max-width: 820px) {
-      .shell, .field-grid, .checkbox-grid { grid-template-columns: 1fr; }
+      .shell, .field-grid, .interests-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -221,24 +217,24 @@
       <div class="shell">
         <section class="card">
           <h2>Application form</h2>
-          <form id="apply-form">
-            <input id="form-started-at" name="started_at" type="hidden" />
+          <form id="apply-form" autocomplete="off">
+            <!-- honeypot spam protection -->
             <div class="honeypot" aria-hidden="true">
-              <label for="website">Website</label>
-              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
             </div>
+
             <div class="field-grid">
               <div class="field">
                 <label for="name">Full name</label>
-                <input id="name" name="name" type="text" required />
+                <input id="name" name="name" type="text" required autocomplete="name" />
               </div>
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" required />
+                <input id="email" name="email" type="email" required autocomplete="email" />
               </div>
               <div class="field">
                 <label for="phone">Phone number</label>
-                <input id="phone" name="phone" type="tel" />
+                <input id="phone" name="phone" type="tel" autocomplete="tel" />
               </div>
               <div class="field">
                 <label for="gender">Gender</label>
@@ -331,24 +327,239 @@
                 </select>
               </div>
               <div class="field-full">
-                <label>What kind of business are you interested in buying or investing in?</label>
-                <div class="checkbox-grid" id="business-interest-options">
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Home Services" /> <span>Home Services</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Healthcare Services" /> <span>Healthcare Services</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="B2B Services" /> <span>B2B Services</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Industrial / Manufacturing" /> <span>Industrial / Manufacturing</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Logistics / Transportation" /> <span>Logistics / Transportation</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="HVAC / Plumbing / Electrical" /> <span>HVAC / Plumbing / Electrical</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Construction / Trades" /> <span>Construction / Trades</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Automotive Services" /> <span>Automotive Services</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Food / Beverage" /> <span>Food / Beverage</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Consumer Services" /> <span>Consumer Services</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Education / Training" /> <span>Education / Training</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Real Estate Services" /> <span>Real Estate Services</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Software / Tech-enabled Services" /> <span>Software / Tech-enabled Services</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="E-commerce" /> <span>E-commerce</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Franchise" /> <span>Franchise</span></label>
-                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Other" /> <span>Other</span></label>
+                <label>What kind of business are you interested in?</label>
+                <div class="interests-grid">
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-home" name="business_interests" value="Home Services" />
+                    <label for="int-home">Home Services</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-health" name="business_interests" value="Healthcare Services" />
+                    <label for="int-health">Healthcare Services</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-b2b" name="business_interests" value="B2B Services" />
+                    <label for="int-b2b">B2B Services</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-industrial" name="business_interests" value="Industrial / Manufacturing" />
+                    <label for="int-industrial">Industrial / Manufacturing</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-logistics" name="business_interests" value="Logistics / Transportation" />
+                    <label for="int-logistics">Logistics / Transportation</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-hvac" name="business_interests" value="HVAC / Plumbing / Electrical" />
+                    <label for="int-hvac">HVAC / Plumbing / Electrical</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-construction" name="business_interests" value="Construction / Trades" />
+                    <label for="int-construction">Construction / Trades</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-automotive" name="business_interests" value="Automotive Services" />
+                    <label for="int-automotive">Automotive Services</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-food" name="business_interests" value="Food / Beverage" />
+                    <label for="int-food">Food / Beverage</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-consumer" name="business_interests" value="Consumer Services" />
+                    <label for="int-consumer">Consumer Services</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-education" name="business_interests" value="Education / Training" />
+                    <label for="int-education">Education / Training</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-realestate" name="business_interests" value="Real Estate Services" />
+                    <label for="int-realestate">Real Estate Services</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-tech" name="business_interests" value="Software / Tech-enabled Services" />
+                    <label for="int-tech">Software / Tech-enabled Services</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-ecommerce" name="business_interests" value="E-commerce" />
+                    <label for="int-ecommerce">E-commerce</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-franchise" name="business_interests" value="Franchise" />
+                    <label for="int-franchise">Franchise</label>
+                  </div>
+                  <div class="interest-item">
+                    <input type="checkbox" id="int-other" name="business_interests" value="Other" />
+                    <label for="int-other">Other</label>
+                  </div>
+                </div>
+              </div>
+              <div class="field-full">
+                <label for="state">Where are you located?</label>
+                <select id="state" name="state" required>
+                  <option value="">Select your state</option>
+                  <option>Alabama</option>
+                  <option>Alaska</option>
+                  <option>Arizona</option>
+                  <option>Arkansas</option>
+                  <option>California</option>
+                  <option>Colorado</option>
+                  <option>Connecticut</option>
+                  <option>Delaware</option>
+                  <option>District of Columbia</option>
+                  <option>Florida</option>
+                  <option>Georgia</option>
+                  <option>Hawaii</option>
+                  <option>Idaho</option>
+                  <option>Illinois</option>
+                  <option>Indiana</option>
+                  <option>Iowa</option>
+                  <option>Kansas</option>
+                  <option>Kentucky</option>
+                  <option>Louisiana</option>
+                  <option>Maine</option>
+                  <option>Maryland</option>
+                  <option>Massachusetts</option>
+                  <option>Michigan</option>
+                  <option>Minnesota</option>
+                  <option>Mississippi</option>
+                  <option>Missouri</option>
+                  <option>Montana</option>
+                  <option>Nebraska</option>
+                  <option>Nevada</option>
+                  <option>New Hampshire</option>
+                  <option>New Jersey</option>
+                  <option>New Mexico</option>
+                  <option>New York</option>
+                  <option>North Carolina</option>
+                  <option>North Dakota</option>
+                  <option>Ohio</option>
+                  <option>Oklahoma</option>
+                  <option>Oregon</option>
+                  <option>Pennsylvania</option>
+                  <option>Rhode Island</option>
+                  <option>South Carolina</option>
+                  <option>South Dakota</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Utah</option>
+                  <option>Vermont</option>
+                  <option>Virginia</option>
+                  <option>Washington</option>
+                  <option>West Virginia</option>
+                  <option>Wisconsin</option>
+                  <option>Wyoming</option>
+                  <option>Outside US</option>
+                </select>
+              </div>
+              <div class="field-full">
+                <label>What kind of business are you interested in?</label>
+                <div class="checkbox-grid">
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-home" name="business_interests" value="Home Services" />
+                    <label for="int-home">Home Services</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-health" name="business_interests" value="Healthcare Services" />
+                    <label for="int-health">Healthcare Services</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-b2b" name="business_interests" value="B2B Services" />
+                    <label for="int-b2b">B2B Services</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-industrial" name="business_interests" value="Industrial / Manufacturing" />
+                    <label for="int-industrial">Industrial / Manufacturing</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-logistics" name="business_interests" value="Logistics / Transportation" />
+                    <label for="int-logistics">Logistics / Transportation</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-hvac" name="business_interests" value="HVAC / Plumbing / Electrical" />
+                    <label for="int-hvac">HVAC / Plumbing / Electrical</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-construction" name="business_interests" value="Construction / Trades" />
+                    <label for="int-construction">Construction / Trades</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-automotive" name="business_interests" value="Automotive Services" />
+                    <label for="int-automotive">Automotive Services</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-food" name="business_interests" value="Food / Beverage" />
+                    <label for="int-food">Food / Beverage</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-consumer" name="business_interests" value="Consumer Services" />
+                    <label for="int-consumer">Consumer Services</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-education" name="business_interests" value="Education / Training" />
+                    <label for="int-education">Education / Training</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-realestate" name="business_interests" value="Real Estate Services" />
+                    <label for="int-realestate">Real Estate Services</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-tech" name="business_interests" value="Software / Tech-enabled Services" />
+                    <label for="int-tech">Software / Tech-enabled Services</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-ecommerce" name="business_interests" value="E-commerce" />
+                    <label for="int-ecommerce">E-commerce</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-franchise" name="business_interests" value="Franchise" />
+                    <label for="int-franchise">Franchise</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="int-other" name="business_interests" value="Other" />
+                    <label for="int-other">Other</label>
+                  </div>
+                </div>
+              </div>
+              <div class="field-full">
+                <label for="state">Where are you located?</label>
+                <select id="state" name="state" required>
+                  <option value="">Select your state</option>
+                  <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+                  <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+                  <option>District of Columbia</option><option>Florida</option><option>Georgia</option><option>Hawaii</option>
+                  <option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option>
+                  <option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option>
+                  <option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option>
+                  <option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option>
+                  <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option>
+                  <option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option>
+                  <option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+                  <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option>
+                  <option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option>
+                  <option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option><option>Outside US</option>
+                </select>
+              </div>
+              <div class="field-full">
+                <label>What kind of business are you interested in?</label>
+                <div class="interests-grid">
+                  <div class="interest-item"><input type="checkbox" id="i-home" name="business_interests" value="Home Services" /><label for="i-home">Home Services</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-health" name="business_interests" value="Healthcare Services" /><label for="i-health">Healthcare Services</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-b2b" name="business_interests" value="B2B Services" /><label for="i-b2b">B2B Services</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-industrial" name="business_interests" value="Industrial / Manufacturing" /><label for="i-industrial">Industrial / Manufacturing</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-logistics" name="business_interests" value="Logistics / Transportation" /><label for="i-logistics">Logistics / Transportation</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-hvac" name="business_interests" value="HVAC / Plumbing / Electrical" /><label for="i-hvac">HVAC / Plumbing / Electrical</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-construction" name="business_interests" value="Construction / Trades" /><label for="i-construction">Construction / Trades</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-automotive" name="business_interests" value="Automotive Services" /><label for="i-automotive">Automotive Services</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-food" name="business_interests" value="Food / Beverage" /><label for="i-food">Food / Beverage</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-consumer" name="business_interests" value="Consumer Services" /><label for="i-consumer">Consumer Services</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-education" name="business_interests" value="Education / Training" /><label for="i-education">Education / Training</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-realestate" name="business_interests" value="Real Estate Services" /><label for="i-realestate">Real Estate Services</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-tech" name="business_interests" value="Software / Tech-enabled Services" /><label for="i-tech">Software / Tech-enabled Services</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-ecommerce" name="business_interests" value="E-commerce" /><label for="i-ecommerce">E-commerce</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-franchise" name="business_interests" value="Franchise" /><label for="i-franchise">Franchise</label></div>
+                  <div class="interest-item"><input type="checkbox" id="i-other" name="business_interests" value="Other" /><label for="i-other">Other</label></div>
                 </div>
               </div>
               <div class="field-full">
@@ -356,7 +567,7 @@
                 <textarea id="intent" name="intent" required placeholder="Tell us what you want to learn, what you are working on, and what kind of room would be most useful."></textarea>
               </div>
             </div>
-            <button class="btn btn-primary" type="submit">Submit application</button>
+            <button class="btn btn-primary" type="submit">Submit Application</button>
             <div id="form-status" class="status" aria-live="polite"></div>
           </form>
         </section>
@@ -364,9 +575,9 @@
           <div class="panel">
             <h3>Track guide</h3>
             <ul>
-              <li><strong>Learn:</strong> you want a practical path into ETA.</li>
-              <li><strong>Operate:</strong> you are actively searching, acquiring, or running a business.</li>
-              <li><strong>Invest:</strong> you want stronger context around operators and opportunities.</li>
+              <li><strong>Learn:</strong> You want a practical path into ETA.</li>
+              <li><strong>Operate:</strong> You are actively searching, acquiring, or running a business.</li>
+              <li><strong>Invest:</strong> You want stronger context around operators and opportunities.</li>
             </ul>
           </div>
           <div class="panel">
@@ -383,50 +594,76 @@
     </div>
   </main>
   <script>
-    const form = document.getElementById('apply-form');
-    const startedAtField = document.getElementById('form-started-at');
-    startedAtField.value = String(Date.now());
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const form = e.target;
+    (function () {
+      const form = document.getElementById('apply-form');
       const status = document.getElementById('form-status');
-      const data = new FormData(form);
-      const values = Object.fromEntries(data.entries());
-      values.business_interests = Array.from(form.querySelectorAll('input[name="business_interests"]:checked')).map((input) => input.value).join('; ');
+      const pageLoadTime = Date.now();
+      let submitted = false;
 
-      if (values.website) {
-        status.textContent = 'There was a problem submitting the application. Please try again.';
-        status.className = 'status error';
-        return;
-      }
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-      if (!values.business_interests) {
-        status.textContent = 'Please choose at least one business category.';
-        status.className = 'status error';
-        return;
-      }
+        // Prevent duplicate submissions
+        if (submitted) return;
 
-      status.textContent = 'Submitting...';
-      status.className = 'status';
+        // Timing guard: must take at least 3 seconds
+        const elapsed = (Date.now() - pageLoadTime) / 1000;
+        if (elapsed < 3) {
+          status.textContent = 'Please take a moment to complete the application.';
+          status.className = 'status error';
+          return;
+        }
 
-      try {
-        const res = await fetch('/apply', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(values)
-        });
+        // Honeypot
+        const honeypot = form.querySelector('input[name="website"]');
+        if (honeypot && honeypot.value) return;
 
-        if (!res.ok) throw new Error('Submission failed');
-        form.reset();
-        startedAtField.value = String(Date.now());
-        status.textContent = 'Application submitted successfully.';
-        status.className = 'status ok';
-      } catch (err) {
-        status.textContent = 'There was a problem submitting the application. Please try again.';
-        status.className = 'status error';
-      }
-    });
+        // Collect all named field values
+        const data = new FormData(form);
+        const body = {};
+        for (const [key, value] of data.entries()) {
+          if (key === 'website') continue;
+          if (!body[key]) {
+            body[key] = value;
+          } else {
+            // Handle multi-value fields (e.g., business_interests checkboxes)
+            if (!Array.isArray(body[key])) body[key] = [body[key]];
+            body[key].push(value);
+          }
+        }
+
+        // Timestamp
+        body.submitted_at = new Date().toISOString();
+        body.referrer = document.referrer || window.location.href;
+
+        status.textContent = 'Submitting your application..';
+        status.className = 'status';
+        submitted = true;
+
+        try {
+          const apiUrl = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/apply'
+            : '/api/apply';
+
+          const res = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+          });
+          const result = await res.json();
+
+          if (!res.ok) throw new Error(result.error || 'Submission failed');
+
+          form.reset();
+          status.textContent = 'Application submitted successfully. We'll be in touch soon.';
+          status.className = 'status ok';
+        } catch (err) {
+          status.textContent = 'There was a problem submitting your application. Please try again.';
+          status.className = 'status error';
+          submitted = false;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
