@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const FIELDS = ['submitted_at', 'name', 'email', 'phone', 'gender', 'track', 'stage', 'intent'];
+const FIELDS = ['submitted_at', 'name', 'email', 'phone', 'gender', 'track', 'stage', 'state', 'business_interests', 'intent'];
 const MAX_BODY_BYTES = 16 * 1024;
 const MAX_FIELD_LENGTH = 2000;
 const MIN_SUBMIT_MS = 3000;
@@ -142,7 +142,7 @@ module.exports = async (req, res) => {
     const row = Object.fromEntries(FIELDS.map((field) => [field, String(payload[field] || '').trim()]));
     row.submitted_at = new Date().toISOString();
 
-    if (!row.name || !row.email || !row.track || !row.intent) {
+    if (!row.name || !row.email || !row.track || !row.state || !row.business_interests || !row.intent) {
       res.status(400).json({ ok: false, error: 'Missing required fields' });
       return;
     }

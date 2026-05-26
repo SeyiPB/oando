@@ -164,6 +164,29 @@
     .btn-primary { background: var(--green); color: #fff; }
     .btn-secondary { border-color: var(--line); background: transparent; color: var(--navy); }
     .stack { display: grid; gap: 14px; }
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+    .checkbox-item input {
+      width: auto;
+      margin: 3px 0 0;
+      padding: 0;
+    }
+    .checkbox-item span {
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--ink);
+    }
     ul { margin: 0; padding-left: 18px; }
     .small { font-size: 13px; }
     .honeypot {
@@ -179,7 +202,7 @@
     .status.ok { color: var(--green-dark); }
     .status.error { color: #9f1d1d; }
     @media (max-width: 820px) {
-      .shell, .field-grid { grid-template-columns: 1fr; }
+      .shell, .field-grid, .checkbox-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -250,6 +273,85 @@
                 </select>
               </div>
               <div class="field-full">
+                <label for="state">Where are you located?</label>
+                <select id="state" name="state" required>
+                  <option value="">Select your state</option>
+                  <option>Alabama</option>
+                  <option>Alaska</option>
+                  <option>Arizona</option>
+                  <option>Arkansas</option>
+                  <option>California</option>
+                  <option>Colorado</option>
+                  <option>Connecticut</option>
+                  <option>Delaware</option>
+                  <option>District of Columbia</option>
+                  <option>Florida</option>
+                  <option>Georgia</option>
+                  <option>Hawaii</option>
+                  <option>Idaho</option>
+                  <option>Illinois</option>
+                  <option>Indiana</option>
+                  <option>Iowa</option>
+                  <option>Kansas</option>
+                  <option>Kentucky</option>
+                  <option>Louisiana</option>
+                  <option>Maine</option>
+                  <option>Maryland</option>
+                  <option>Massachusetts</option>
+                  <option>Michigan</option>
+                  <option>Minnesota</option>
+                  <option>Mississippi</option>
+                  <option>Missouri</option>
+                  <option>Montana</option>
+                  <option>Nebraska</option>
+                  <option>Nevada</option>
+                  <option>New Hampshire</option>
+                  <option>New Jersey</option>
+                  <option>New Mexico</option>
+                  <option>New York</option>
+                  <option>North Carolina</option>
+                  <option>North Dakota</option>
+                  <option>Ohio</option>
+                  <option>Oklahoma</option>
+                  <option>Oregon</option>
+                  <option>Pennsylvania</option>
+                  <option>Rhode Island</option>
+                  <option>South Carolina</option>
+                  <option>South Dakota</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Utah</option>
+                  <option>Vermont</option>
+                  <option>Virginia</option>
+                  <option>Washington</option>
+                  <option>West Virginia</option>
+                  <option>Wisconsin</option>
+                  <option>Wyoming</option>
+                  <option>Outside US</option>
+                </select>
+              </div>
+              <div class="field-full">
+                <label>What kind of business are you interested in buying or investing in?</label>
+                <div class="checkbox-grid" id="business-interest-options">
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Home Services" /> <span>Home Services</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Healthcare Services" /> <span>Healthcare Services</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="B2B Services" /> <span>B2B Services</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Industrial / Manufacturing" /> <span>Industrial / Manufacturing</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Logistics / Transportation" /> <span>Logistics / Transportation</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="HVAC / Plumbing / Electrical" /> <span>HVAC / Plumbing / Electrical</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Construction / Trades" /> <span>Construction / Trades</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Automotive Services" /> <span>Automotive Services</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Food / Beverage" /> <span>Food / Beverage</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Consumer Services" /> <span>Consumer Services</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Education / Training" /> <span>Education / Training</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Real Estate Services" /> <span>Real Estate Services</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Software / Tech-enabled Services" /> <span>Software / Tech-enabled Services</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="E-commerce" /> <span>E-commerce</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Franchise" /> <span>Franchise</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="business_interests" value="Other" /> <span>Other</span></label>
+                </div>
+              </div>
+              <div class="field-full">
                 <label for="intent">Why do you want to join?</label>
                 <textarea id="intent" name="intent" required placeholder="Tell us what you want to learn, what you are working on, and what kind of room would be most useful."></textarea>
               </div>
@@ -291,9 +393,16 @@
       const status = document.getElementById('form-status');
       const data = new FormData(form);
       const values = Object.fromEntries(data.entries());
+      values.business_interests = Array.from(form.querySelectorAll('input[name="business_interests"]:checked')).map((input) => input.value).join('; ');
 
       if (values.website) {
         status.textContent = 'There was a problem submitting the application. Please try again.';
+        status.className = 'status error';
+        return;
+      }
+
+      if (!values.business_interests) {
+        status.textContent = 'Please choose at least one business category.';
         status.className = 'status error';
         return;
       }
@@ -310,6 +419,7 @@
 
         if (!res.ok) throw new Error('Submission failed');
         form.reset();
+        startedAtField.value = String(Date.now());
         status.textContent = 'Application submitted successfully.';
         status.className = 'status ok';
       } catch (err) {

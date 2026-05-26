@@ -11,7 +11,7 @@ from time import time
 ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT.parent / "oando-private-data"
 CSV_PATH = DATA_DIR / "applications.csv"
-FIELDS = ["submitted_at", "name", "email", "phone", "gender", "track", "stage", "intent"]
+FIELDS = ["submitted_at", "name", "email", "phone", "gender", "track", "stage", "state", "business_interests", "intent"]
 MAX_BODY_BYTES = 16_384
 MAX_FIELD_LENGTH = 2_000
 MIN_SUBMIT_SECONDS = 3
@@ -97,7 +97,7 @@ class Handler(SimpleHTTPRequestHandler):
 
         row = {field: str(payload.get(field, "")).strip() for field in FIELDS}
         row["submitted_at"] = datetime.now(timezone.utc).isoformat()
-        if not row["name"] or not row["email"] or not row["track"] or not row["intent"]:
+        if not row["name"] or not row["email"] or not row["track"] or not row["state"] or not row["business_interests"] or not row["intent"]:
             self.send_error(400, "Missing required fields")
             return
 
