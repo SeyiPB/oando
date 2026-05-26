@@ -166,6 +166,15 @@
     .stack { display: grid; gap: 14px; }
     ul { margin: 0; padding-left: 18px; }
     .small { font-size: 13px; }
+    .honeypot {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
     .status { margin-top: 14px; min-height: 24px; font-size: 14px; }
     .status.ok { color: var(--green-dark); }
     .status.error { color: #9f1d1d; }
@@ -190,6 +199,11 @@
         <section class="card">
           <h2>Application form</h2>
           <form id="apply-form">
+            <input id="form-started-at" name="started_at" type="hidden" />
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
             <div class="field-grid">
               <div class="field">
                 <label for="name">Full name</label>
@@ -267,12 +281,23 @@
     </div>
   </main>
   <script>
-    document.getElementById('apply-form').addEventListener('submit', async function (e) {
+    const form = document.getElementById('apply-form');
+    const startedAtField = document.getElementById('form-started-at');
+    startedAtField.value = String(Date.now());
+
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
       const form = e.target;
       const status = document.getElementById('form-status');
       const data = new FormData(form);
       const values = Object.fromEntries(data.entries());
+
+      if (values.website) {
+        status.textContent = 'There was a problem submitting the application. Please try again.';
+        status.className = 'status error';
+        return;
+      }
+
       status.textContent = 'Submitting...';
       status.className = 'status';
 
