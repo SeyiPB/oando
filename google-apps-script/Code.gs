@@ -1,6 +1,6 @@
 const SHEET_ID = '1nWZs7FDAuMd32XCfLOLn_sJmfECBxOZaUTchQihKGR0';
 const SHEET_NAME = 'candidates';
-const HEADERS = ['submitted_at', 'name', 'email', 'phone', 'gender', 'track', 'stage', 'state', 'business_interests', 'intent'];
+const HEADERS = ['submitted_at', 'name', 'email', 'phone', 'gender', 'track', 'stage', 'state', 'business_interests', 'intent', 'contact_consent', 'terms_accepted', 'terms_version'];
 
 function doPost(e) {
   try {
@@ -15,7 +15,7 @@ function doPost(e) {
     }
 
     const row = HEADERS.map((field) => String(body[field] || '').trim());
-    if (!row[1] || !row[2] || !row[5] || !row[7] || !row[8] || !row[9]) {
+    if (!row[1] || !row[2] || !row[5] || !row[7] || !row[8] || !row[9] || row[10] !== 'yes' || row[11] !== 'yes') {
       return jsonResponse({ ok: false, error: 'Missing required fields' });
     }
 

@@ -9,7 +9,22 @@ from datetime import datetime, timezone
 ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT.parent / "oando-private-data"
 CSV_PATH = DATA_DIR / "applications.csv"
-FIELDS = ["submitted_at", "name", "email", "phone", "gender", "track", "stage", "intent"]
+FIELDS = [
+    "submitted_at",
+    "name",
+    "email",
+    "phone",
+    "gender",
+    "track",
+    "stage",
+    "state",
+    "business_interests",
+    "intent",
+    "contact_consent",
+    "terms_accepted",
+    "terms_version",
+]
+TELEGRAM_GROUP_URL = "https://t.me/+tTeE6U4WdIIyMjIx"
 MAX_BODY_BYTES = 16_384
 WRITE_LOCK = threading.Lock()
 
@@ -40,9 +55,24 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_error(400, "Invalid JSON")
             return
 
-        row = {field: str(payload.get(field, "")).strip() for field in FIELDS}
+        row = {}
+        for field in FIELDS:
+            value = payload.get(field, "")
+            if isinstance(value, list):
+                value = ", ".join(str(item).strip() for item in value if str(item).strip())
+            row[field] = str(value).strip()
         row["submitted_at"] = datetime.now(timezone.utc).isoformat()
-        if not row["name"] or not row["email"] or not row["track"] or not row["intent"]:
+        if (
+            not row["name"]
+            or not row["email"]
+            or not row["track"]
+            or not row["stage"]
+            or not row["state"]
+            or not row["business_interests"]
+            or not row["intent"]
+            or row["contact_consent"].lower() != "yes"
+            or row["terms_accepted"].lower() != "yes"
+        ):
             self.send_error(400, "Missing required fields")
             return
 
@@ -55,7 +85,7 @@ class Handler(SimpleHTTPRequestHandler):
                     writer.writeheader()
                 writer.writerow(row)
 
-        body = json.dumps({"ok": True}).encode("utf-8")
+        body = json.dumps({"ok": True, "redirect_url": TELEGRAM_GROUP_URL}).encode("utf-8")
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(body)))
