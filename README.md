@@ -1,23 +1,16 @@
 # Owners & Operators
 
-Static site plus lightweight intake endpoints.
+Owners & Operators is a professional ETA community website for acquisition entrepreneurs, operators, and capital partners.
 
-## Local preview
+The site introduces the community, explains who it is for, and directs prospective members to apply for the founding cohort.
 
-```bash
-python3 server.py
-```
+## Website
 
-Open the local preview in your browser after starting the server.
+https://oando-coral.vercel.app
 
-## Production form storage
+## What the site covers
 
-Vercel supports two modes:
-- `GOOGLE_APPS_SCRIPT_URL` set → submissions are forwarded to Google Sheets
-- otherwise the bundled default webhook URL is used
-- if no webhook is available, submissions fall back to temporary `/tmp` CSV storage
-
-Current default Google Sheets webhook:
-- `https://script.google.com/macros/s/AKfycbzu2OUyfAFNYXDrpwMoH0Q6VVljVxqppu_zjctpOIVTozcMFF2p2vsiJUOFARsn2n9nWw/exec`
-
-If you rotate the Apps Script deployment URL later, set the new value in Vercel as `GOOGLE_APPS_SCRIPT_URL`.
+- Entrepreneurship through acquisition education
+- Searcher, operator, and investor community positioning
+- Real-deal learning and operator-quality judgment
+- Founding cohort application flow
